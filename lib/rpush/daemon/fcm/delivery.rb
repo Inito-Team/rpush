@@ -148,7 +148,7 @@ module Rpush
           # Needed for Google Auth
           # See https://github.com/googleapis/google-auth-library-ruby#example-environment-variables
           # for further information
-          (app.firebase_project_id || ENV.key?('FIREBASE_PROJECT_ID')) &&
+          !!(app.firebase_project_id || ENV.key?('FIREBASE_PROJECT_ID')) &&
             (app.json_key || (
               ENV.key?('GOOGLE_ACCOUNT_TYPE') &&
                 ENV.key?('GOOGLE_CLIENT_ID') &&
